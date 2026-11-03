@@ -1,5 +1,5 @@
 
-import { CalendarDays, Image as ImageIcon } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import type { PlantNote } from "../../types/plant";
 
 interface JournalEntryProps {
