@@ -1,0 +1,88 @@
+
+.journal-entry {
+  position: relative;
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 15px;
+  padding-bottom: 28px;
+}
+
+.journal-entry-marker {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.journal-entry-marker::after {
+  position: absolute;
+  top: 13px;
+  bottom: -28px;
+  width: 1px;
+  background: #e3eae0;
+  content: "";
+}
+
+.journal-entry:last-child .journal-entry-marker::after {
+  display: none;
+}
+
+.journal-entry-marker span {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  margin-top: 3px;
+  border: 2px solid #89a487;
+  border-radius: 50%;
+  background: #f7f8f3;
+}
+
+.journal-entry-content {
+  min-width: 0;
+  padding: 0 0 4px;
+}
+
+.journal-entry-date {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #96a195;
+  font-size: 11px;
+}
+
+.journal-entry-content > p {
+  margin: 12px 0;
+  color: #627164;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.journal-entry-image {
+  width: min(100%, 280px);
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #edf1e9;
+}
+
+.journal-entry-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.journal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.journal-form .form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.journal-image-upload {
+  min-height: 130px;
+}

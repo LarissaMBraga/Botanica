@@ -1,0 +1,291 @@
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 24px;
+}
+
+.plant-card {
+  width: 100%;
+  min-width: 0;
+  height: 100%;
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid #e9ede6;
+  border-radius: 16px;
+  background: #fff;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(45, 70, 48, 0.08);
+}
+
+.plant-card-image {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: #edf1e9;
+}
+
+.plant-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.plant-card:hover .plant-card-image img {
+  transform: scale(1.04);
+}
+
+.plant-category {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #edf3e9;
+  color: #527354;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.plant-card-image .plant-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+.plant-card-arrow {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #54745a;
+}
+
+.plant-card-content {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 21px 22px 18px;
+}
+
+.plant-card-heading {
+  min-width: 0;
+}
+
+.plant-card-content h4 {
+  margin: 0 0 6px;
+  color: #405744;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.plant-species {
+  display: block;
+  color: #9aa49a;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.plant-description {
+  min-height: 36px;
+  margin: 15px 0 20px;
+  color: #7c897d;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.plant-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid #edf0e9;
+}
+
+.plant-card-footer span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #849184;
+  font-size: 10px;
+}
+
+.plant-details {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.back-button {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border: none;
+  background: transparent;
+  color: #718174;
+  font-size: 12px;
+}
+
+.plant-profile-hero {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) 1.1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.plant-profile-image {
+  position: relative;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #edf1e9;
+}
+
+.plant-profile-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-update-button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 13px;
+  border-radius: 8px;
+  background: #fff;
+  color: #526c55;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.plant-profile-info h2 {
+  margin: 13px 0 4px;
+  color: #3f5944;
+  font-family: "Playfair Display", serif;
+  font-size: 37px;
+  font-weight: 500;
+}
+
+.plant-profile-info > p:not(.plant-species) {
+  max-width: 480px;
+  margin: 22px 0;
+  color: #758276;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.plant-profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 14px;
+  border: 1px solid #f0e4e1;
+  border-radius: 8px;
+  background: #fff;
+  color: #a66d62;
+  font-size: 12px;
+}
+
+.plant-facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.plant-fact {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 18px;
+  border: 1px solid #e9ede6;
+  border-radius: 12px;
+  background: #fff;
+  color: #789078;
+}
+
+.plant-fact span,
+.plant-fact strong {
+  display: block;
+}
+
+.plant-fact span {
+  margin-bottom: 6px;
+  color: #9aa49a;
+  font-size: 10px;
+}
+
+.plant-fact strong {
+  color: #526653;
+  font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+  .plant-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .plant-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-profile-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .plant-profile-image {
+    height: 260px;
+  }
+
+  .plant-profile-info h2 {
+    font-size: 30px;
+  }
+
+  .plant-facts {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,81 @@
+
+.my-plants-page {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.collection-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.collection-heading h2 {
+  margin: 9px 0 5px;
+  color: #405744;
+  font-family: "Playfair Display", serif;
+  font-size: 35px;
+  font-weight: 500;
+}
+
+.collection-heading p {
+  margin: 0;
+  color: #8c998d;
+  font-size: 12px;
+}
+
+.collection-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.collection-count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7d8b7d;
+  font-size: 12px;
+}
+
+.search-box {
+  width: min(100%, 270px);
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid #e5eae1;
+  border-radius: 8px;
+  background: #fff;
+  color: #91a091;
+}
+
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #405744;
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  .collection-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .collection-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+}

@@ -1,0 +1,27 @@
+
+.plant-profile-page {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.profile-journal {
+  padding-top: 28px;
+  border-top: 1px solid #e5eae1;
+}
+
+.profile-journal .section-title-row {
+  margin-bottom: 25px;
+}
+
+.profile-journal h3 {
+  margin: 8px 0 0;
+  color: #405744;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.journal-timeline {
+  max-width: 750px;
+}

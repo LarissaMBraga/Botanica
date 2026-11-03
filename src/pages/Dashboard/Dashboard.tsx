@@ -1,0 +1,54 @@
+
+import { Flower2, Leaf } from "lucide-react";
+import type { Plant } from "../../types/plant";
+import WelcomeBanner from "../../components/Dashboard/WelcomeBanner";
+import StatsOverview from "../../components/Dashboard/StatsOverview";
+import RecentPlants from "../../components/Dashboard/RecentPlants";
+import "./Dashboard.css";
+
+interface DashboardProps {
+  plants: Plant[];
+  totalNotes: number;
+  onAdd: () => void;
+  onViewAll: () => void;
+  onSelect: (plant: Plant) => void;
+}
+
+export default function Dashboard({
+  plants,
+  totalNotes,
+  onAdd,
+  onViewAll,
+  onSelect
+}: DashboardProps) {
+  return (
+    <section className="dashboard-page">
+      <WelcomeBanner onAdd={onAdd} />
+
+      <StatsOverview
+        plants={plants}
+        totalNotes={totalNotes}
+      />
+
+      <RecentPlants
+        plants={plants}
+        onViewAll={onViewAll}
+        onSelect={onSelect}
+        onAdd={onAdd}
+      />
+
+      <div className="quote-banner">
+        <Flower2 size={27} />
+
+        <div>
+          <strong>
+            "To plant a garden is to believe in tomorrow."
+          </strong>
+          <span> — Audrey Hepburn</span>
+        </div>
+
+        <Leaf className="quote-leaf" size={90} />
+      </div>
+    </section>
+  );
+}
