@@ -3,7 +3,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: stretch;
-  gap: 24px;
+  gap: 19px;
 }
 
 .plant-card {
@@ -106,7 +106,7 @@
 
 .plant-species {
   display: block;
-  color: #9aa49a;
+  color: #596657;
   font-size: 11px;
   font-style: italic;
   line-height: 1.5;
@@ -115,7 +115,7 @@
 .plant-description {
   min-height: 36px;
   margin: 15px 0 20px;
-  color: #7c897d;
+  color: #536453;
   font-size: 12px;
   line-height: 1.6;
 }
@@ -136,7 +136,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #849184;
+  color: #596657;
   font-size: 10px;
 }
 
@@ -154,7 +154,7 @@
   padding: 8px 0;
   border: none;
   background: transparent;
-  color: #718174;
+  color: #526653;
   font-size: 12px;
 }
 
@@ -253,7 +253,7 @@
 
 .plant-fact span {
   margin-bottom: 6px;
-  color: #9aa49a;
+  color: #596657;
   font-size: 10px;
 }
 

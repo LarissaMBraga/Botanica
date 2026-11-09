@@ -9,6 +9,9 @@ import {
   BookOpen
 } from "lucide-react";
 import type { Plant } from "../../types/plant";
+import { readImage } from "../../utils/imageUtils";
+
+const CURRENT_DATE = Date.now();
 
 interface PlantDetailsProps {
   plant: Plant;
@@ -49,7 +52,6 @@ export default function PlantDetails({
                 if (!file) return;
 
                 try {
-                  const { readImage } = await import("../../utils/imageUtils");
                   onPhotoUpdate(await readImage(file));
                 } catch {
                   event.target.value = "";
@@ -113,7 +115,7 @@ export default function PlantDetails({
               {Math.max(
                 0,
                 Math.floor(
-                  (Date.now() - new Date(`${plant.plantedAt}T00:00:00`).getTime()) /
+                  (CURRENT_DATE - new Date(`${plant.plantedAt}T00:00:00`).getTime()) /
                   86400000
                 )
               )} days

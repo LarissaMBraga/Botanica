@@ -7,10 +7,41 @@ interface PlantCardProps {
   onSelect: (plant: Plant) => void;
 }
 
+function getResponsiveImageSource(image: string) {
+  try {
+    const url = new URL(image);
+
+    if (url.hostname !== "images.unsplash.com") {
+      return undefined;
+    }
+
+    const widths = [320, 480, 640, 800];
+
+    const srcSet = widths
+      .map(width => {
+        const responsiveUrl = new URL(url);
+
+        responsiveUrl.searchParams.set("auto", "format");
+        responsiveUrl.searchParams.set("fit", "max");
+        responsiveUrl.searchParams.set("w", String(width));
+        responsiveUrl.searchParams.set("q", "75");
+
+        return `${responsiveUrl.toString()} ${width}w`;
+      })
+      .join(", ");
+
+    return srcSet;
+  } catch {
+    return undefined;
+  }
+}
+
 export default function PlantCard({
   plant,
   onSelect
 }: PlantCardProps) {
+  const imageSrcSet = getResponsiveImageSource(plant.image);
+
   return (
     <button
       type="button"
@@ -18,7 +49,13 @@ export default function PlantCard({
       onClick={() => onSelect(plant)}
     >
       <div className="plant-card-image">
-        <img src={plant.image} alt={plant.name} />
+        <img
+          src={plant.image}
+          srcSet={imageSrcSet}
+          sizes="(max-width: 650px) 100vw, (max-width: 1000px) 50vw, 33vw"
+          alt={plant.name}
+          decoding="async"
+        />
 
         <span className="plant-category">
           {plant.category}

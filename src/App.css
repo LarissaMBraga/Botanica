@@ -51,7 +51,7 @@
 
 .sidebar-label,
 .eyebrow {
-  color: #899e87;
+  color: #526b53;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -190,7 +190,7 @@
 }
 
 .breadcrumb {
-  color: #929a8d;
+  color: #596657;
   font-size: 12px;
 }
 
@@ -204,7 +204,7 @@
 }
 
 .today-label {
-  color: #788477;
+  color: #566653;
   font-size: 11px;
 }
 
@@ -255,12 +255,12 @@
 .welcome-row p,
 .page-heading p {
   margin: 0;
-  color: #899187;
+  color: #596657;
   font-size: 13px;
 }
 
 .heading-period {
-  color: #91a783;
+  color: #526b53;
 }
 
 .primary-button,
@@ -334,7 +334,7 @@
 }
 
 .stat-card > span {
-  color: #849083;
+  color: #596657;
   font-size: 11px;
 }
 
@@ -350,7 +350,7 @@
   position: absolute;
   right: 18px;
   bottom: 21px;
-  color: #a1a99d;
+  color: #596657;
   font-size: 10px;
 }
 
@@ -383,11 +383,7 @@
   font-weight: 600;
 }
 
-.plant-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 19px;
-}
+
 
 .plant-card {
   overflow: hidden;
@@ -429,7 +425,7 @@
   margin-top: 38px;
   border-radius: 10px;
   background: #eaf0e4;
-  color: #678166;
+  color: #4d684f;
 }
 
 .quote-banner strong {
@@ -443,7 +439,7 @@
 .quote-banner span {
   display: block;
   margin-top: 6px;
-  color: #879782;
+  color: #526653;
   font-size: 10px;
 }
 
@@ -520,7 +516,7 @@
 .journal-empty p {
   max-width: 320px;
   margin: 0 0 19px;
-  color: #929b8e;
+  color: #596657;
   font-size: 12px;
   line-height: 1.7;
 }
@@ -582,7 +578,7 @@
 }
 
 .profile-heading em {
-  color: #929b8e;
+  color: #596657;
   font-size: 13px;
 }
 
@@ -640,7 +636,7 @@
 
 .journal-date {
   padding-top: 3px;
-  color: #8b9a83;
+  color: #526653;
   font-size: 11px;
 }
 
@@ -661,7 +657,7 @@
 
 .journal-empty {
   padding: 35px 20px;
-  color: #8da087;
+  color: #526653;
 }
 
 .journal-empty p {
@@ -777,7 +773,7 @@
 }
 
 .image-picker-placeholder span {
-  color: #9aa493;
+  color: #596657;
   font-size: 10px;
 }
 
@@ -841,7 +837,7 @@
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: #b0b8ab;
+  color: #667563;
 }
 
 .field-error {
@@ -1169,7 +1165,7 @@
 .ui-input::placeholder,
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: #adb7aa;
+  color: #667563;
 }
 
 .ui-input-error {
@@ -1192,7 +1188,7 @@
 }
 
 .field-helper {
-  color: #929b8e;
+  color: #596657;
   font-size: 10px;
   font-weight: 400;
 }
@@ -1229,7 +1225,7 @@
 }
 
 .image-upload-trigger span {
-  color: #9aa493;
+  color: #596657;
   font-size: 10px;
 }
 
@@ -1340,5 +1336,13 @@
   .form-field-full {
     grid-column: auto;
   }
+}
+
+.main-area span {
+  color: #526653;
+}
+
+.main-area .text-button {
+  color: #355440;
 }
 

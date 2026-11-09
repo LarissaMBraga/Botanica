@@ -1,5 +1,5 @@
 
-import { useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
 import { usePlants } from "./hooks/usePlants";
@@ -8,13 +8,14 @@ import Sidebar from "./components/Layout/Sidebar";
 import Header from "./components/Layout/Header";
 import Footer from "./components/Layout/Footer";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import MyPlants from "./pages/MyPlants/MyPlants";
-import PlantProfile from "./pages/PlantProfile/PlantProfile";
-import PlantForm from "./components/Plants/PlantForm";
-import JournalForm from "./components/Journal/JournalForm";
-import Modal from "./components/Common/Modal";
 import "./components/Plants/Plants.css";
 import "./App.css";
+
+const MyPlants = lazy(() => import("./pages/MyPlants/MyPlants"));
+const PlantProfile = lazy(() => import("./pages/PlantProfile/PlantProfile"));
+const PlantForm = lazy(() => import("./components/Plants/PlantForm"));
+const JournalForm = lazy(() => import("./components/Journal/JournalForm"));
+const Modal = lazy(() => import("./components/Common/Modal"));
 
 type Page = "dashboard" | "plants";
 
@@ -148,85 +149,89 @@ function App() {
         />
 
         <div className="page-content">
-          {selectedPlant ? (
-            <PlantProfile
-              plant={selectedPlant}
-              onBack={() => setSelectedPlantId(null)}
-              onDelete={handleDeletePlant}
-              onPhotoUpdate={handlePhotoUpdate}
-              onAddNote={() => setShowJournalForm(true)}
-            />
-          ) : page === "dashboard" ? (
-            <Dashboard
-              plants={plants}
-              totalNotes={totalNotes}
-              onAdd={() => setShowPlantForm(true)}
-              onViewAll={() => navigate("plants")}
-              onSelect={openPlant}
-            />
-          ) : (
-            <MyPlants
-              plants={plants}
-              onSelect={openPlant}
-              onAdd={() => setShowPlantForm(true)}
-            />
-          )}
+          <Suspense fallback={null}>
+            {selectedPlant ? (
+              <PlantProfile
+                plant={selectedPlant}
+                onBack={() => setSelectedPlantId(null)}
+                onDelete={handleDeletePlant}
+                onPhotoUpdate={handlePhotoUpdate}
+                onAddNote={() => setShowJournalForm(true)}
+              />
+            ) : page === "dashboard" ? (
+              <Dashboard
+                plants={plants}
+                totalNotes={totalNotes}
+                onAdd={() => setShowPlantForm(true)}
+                onViewAll={() => navigate("plants")}
+                onSelect={openPlant}
+              />
+            ) : (
+              <MyPlants
+                plants={plants}
+                onSelect={openPlant}
+                onAdd={() => setShowPlantForm(true)}
+              />
+            )}
+          </Suspense>
         </div>
 
         <Footer />
       </main>
 
-      <AnimatePresence>
-        {showPlantForm && (
-          <Modal
-            title="Add a new plant"
-            subtitle="A new little life for your collection."
-            onClose={() => setShowPlantForm(false)}
-          >
-            <PlantForm
-              onSubmit={handlePlantSubmit}
-              onCancel={() => setShowPlantForm(false)}
-            />
-          </Modal>
-        )}
-
-        {showJournalForm && selectedPlant && (
-          <Modal
-            title="New journal entry"
-            subtitle={`Record a new moment in ${selectedPlant.name}'s journey.`}
-            onClose={() => setShowJournalForm(false)}
-          >
-            <JournalForm
-              onSubmit={handleJournalSubmit}
-              onCancel={() => setShowJournalForm(false)}
-            />
-          </Modal>
-        )}
-
-        {toast && (
-          <motion.div
-            className={`toast ${toast.type === "error" ? "toast-error" : ""}`}
-            role="status"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-          >
-            {toast.type === "success" ? (
-              <CheckCircle2 size={18} />
-            ) : (
-              <XCircle size={18} />
-            )}
-            <span>{toast.message}</span>
-            <button
-              type="button"
-              onClick={() => setToast(null)}
-              aria-label="Dismiss notification"
+      <Suspense fallback={null}>
+        <AnimatePresence>
+          {showPlantForm && (
+            <Modal
+              title="Add a new plant"
+              subtitle="A new little life for your collection."
+              onClose={() => setShowPlantForm(false)}
             >
-              ×
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+              <PlantForm
+                onSubmit={handlePlantSubmit}
+                onCancel={() => setShowPlantForm(false)}
+              />
+            </Modal>
+          )}
+
+          {showJournalForm && selectedPlant && (
+            <Modal
+              title="New journal entry"
+              subtitle={`Record a new moment in ${selectedPlant.name}'s journey.`}
+              onClose={() => setShowJournalForm(false)}
+            >
+              <JournalForm
+                onSubmit={handleJournalSubmit}
+                onCancel={() => setShowJournalForm(false)}
+              />
+            </Modal>
+          )}
+
+          {toast && (
+            <motion.div
+              className={`toast ${toast.type === "error" ? "toast-error" : ""}`}
+              role="status"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+            >
+              {toast.type === "success" ? (
+                <CheckCircle2 size={18} />
+              ) : (
+                <XCircle size={18} />
+              )}
+              <span>{toast.message}</span>
+              <button
+                type="button"
+                onClick={() => setToast(null)}
+                aria-label="Dismiss notification"
+              >
+                Ã—
+              </button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Suspense>
     </div>
   );
 }
